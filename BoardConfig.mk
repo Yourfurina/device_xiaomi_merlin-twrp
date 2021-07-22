@@ -28,6 +28,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
+BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
+    --prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
+    --prop com.android.build.boot.security_patch:$(PLATFORM_SECURITY_PATCH)
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := merlin
 TARGET_NO_BOOTLOADER := true
