@@ -5,6 +5,16 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
 # <mount_point>  <fstype>  <device>        <device2>                  <flags>
+/system             ext4      /dev/block/mapper/system                       flags=display="System";backup=1
+/system_image       emmc      /dev/block/mapper/system                       flags=display="System image";backup=1;flashimg=1
+/vendor             ext4      /dev/block/mapper/vendor                       flags=display="Vendor";backup=1
+/vendor_image       emmc      /dev/block/mapper/vendor                       flags=display="Vendor image";backup=1;flashimg=1
+/product            ext4      /dev/block/mapper/product                      flags=display="Product";backup=1
+/product_image      emmc      /dev/block/mapper/product                      flags=display="Product image";backup=1;flashimg=1
+/system_ext         ext4      /dev/block/mapper/system_ext                   flags=display="System_ext";backup=1
+/system_ext_image   emmc      /dev/block/mapper/system_ext                   flags=display="System_ext image";backup=1;flashimg=1
+
+/data             f2fs     /dev/block/platform/bootdevice/by-name/userdata     flags=fileencryption=aes-256-xts:aes-256-cts:v2+emmc_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
 /cache            ext4     /dev/block/platform/bootdevice/by-name/cache        flags=backup=1;wipeingui;wipeduringfactoryreset
 /boot             emmc     /dev/block/platform/bootdevice/by-name/boot         flags=backup=1;flashimg=1
 /dtbo             emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=display="dtbo";backup=1;flashimg=1
